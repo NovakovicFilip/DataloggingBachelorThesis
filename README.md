@@ -83,7 +83,6 @@ The script starts with main_stable() – sets all DAC outputs to 5V and reads AD
 To test with real data, switch to main_test() (note the bug).
 
 ## Known Issues & Troubleshooting
-Error	Cause	Workaround
 [Errno 110] Connection timeout	
 Wrong URI or intermittent connection	Verify URI with iio_info -s. Reboot Raspberry Pi.
 
