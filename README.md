@@ -92,7 +92,9 @@ To test with real data, switch to main_test() (note the bug).
 ## Known Issues & Troubleshooting
 Error	Cause	Workaround
 [Errno 110] Connection timeout	Wrong URI or intermittent connection	Verify URI with iio_info -s. Reboot Raspberry Pi.
+
 [Errno 13] Permission denied	File or user permissions	Run chmod u+x yourfile.py or modify sudoers (see thesis memo).
+
 [Errno 32] Broken Pipe	IO management bug in pyadi-iio or CN0554 driver	Use main_stable() for demos. Future work: investigate driver reset between writes.
 For detailed debugging steps, refer to the "Problèmes rencontrés" section in the thesis memo (page 37–38).
 
