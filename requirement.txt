@@ -1,0 +1,6 @@
+text
+numpy
+pandas
+matplotlib
+scipy
+adijupyter
