@@ -15,6 +15,22 @@ This project was developed for a real boat ("Lammouche") to monitor electrical e
 
 The simulator can generate voltage signals that mimic the boat’s electrical profile, enabling testing without the real hardware.
 
+## Repository Contents
+DataloggingBachelorThesis/
+├── README.md # This file
+├── requirements.txt # Python dependencies
+├── code/
+│ ├── threshold_analysis.py # Generator activation threshold detection
+│ ├── density_analysis.py # Gaussian KDE analysis of power data
+│ └── cn0554_controller.py # Raspberry Pi + CN0554 control script
+├── notebooks/
+│ └── data_exploration.ipynb # Jupyter notebook (if added)
+├── data/
+│ └── sample_data.csv # Example data (anonymised)
+└── docs/
+└── thesis_memo.pdf # Full bachelor thesis document
+
+text
 
 ## Hardware Requirements
 
@@ -31,18 +47,16 @@ For data analysis only, you only need Python and the CSV files.
 ## Software & Dependencies
 
 Install the required Python libraries:
---------
-pip install -r requirements.txt
---------
 
-requirements.txt:
+bash
+pip install -r requirements.txt
+requirements.txt
 text
 numpy
 pandas
 matplotlib
 scipy
 adijupyter
-
 For the Raspberry Pi + CN0554, you must use the Analog Devices Kuiper Linux image. See the official installation guide.
 
 Project Structure & Key Results
@@ -67,11 +81,10 @@ Can replay real power data from CSV files (intended for eGauge injection).
 Current known bug: The main_test() loop that repeatedly changes DAC output causes a Broken Pipe (Errno 32) error after 1–2 iterations. The main_stable() function (fixed voltage) works correctly. This is documented in the code comments and thesis memo.
 
 How to Run
-Data Analysis (on any computer):
+Data Analysis (on any computer)
 bash
 python threshold_analysis.py
 python density_analysis.py
-
 The density script includes an interactive mode: use up/down arrows to switch between PORT/STBD, left/right arrows to browse different electrical loads.
 
 CN0554 Simulator (on Raspberry Pi with Kuiper OS)
