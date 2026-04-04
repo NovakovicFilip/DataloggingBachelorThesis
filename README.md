@@ -15,23 +15,6 @@ This project was developed for a real boat ("Lammouche") to monitor electrical e
 
 The simulator can generate voltage signals that mimic the boat’s electrical profile, enabling testing without the real hardware.
 
-## Repository Contents
-DataloggingBachelorThesis/
-├── README.md # This file
-├── requirements.txt # Python dependencies
-├── code/
-│ ├── threshold_analysis.py # Generator activation threshold detection
-│ ├── density_analysis.py # Gaussian KDE analysis of power data
-│ └── cn0554_controller.py # Raspberry Pi + CN0554 control script
-├── notebooks/
-│ └── data_exploration.ipynb # Jupyter notebook (if added)
-├── data/
-│ └── sample_data.csv # Example data (anonymised)
-└── docs/
-└── thesis_memo.pdf # Full bachelor thesis document
-
-text
-
 ## Hardware Requirements
 
 To run the simulator (optional – analysis scripts run on any PC):
@@ -59,7 +42,7 @@ scipy
 adijupyter
 For the Raspberry Pi + CN0554, you must use the Analog Devices Kuiper Linux image. See the official installation guide.
 
-Project Structure & Key Results
+## Project Structure & Key Results
 1. Data Analysis (threshold_analysis.py, density_analysis.py)
 Threshold detection: Identified that the PORT generator activates when STBD generator reaches ~40 kW. STBD is the primary generator.
 
@@ -80,7 +63,7 @@ Can replay real power data from CSV files (intended for eGauge injection).
 
 Current known bug: The main_test() loop that repeatedly changes DAC output causes a Broken Pipe (Errno 32) error after 1–2 iterations. The main_stable() function (fixed voltage) works correctly. This is documented in the code comments and thesis memo.
 
-How to Run
+## How to Run
 Data Analysis (on any computer)
 bash
 python threshold_analysis.py
@@ -106,14 +89,14 @@ The script starts with main_stable() – sets all DAC outputs to 5V and reads AD
 
 To test with real data, switch to main_test() (note the bug).
 
-Known Issues & Troubleshooting
+## Known Issues & Troubleshooting
 Error	Cause	Workaround
 [Errno 110] Connection timeout	Wrong URI or intermittent connection	Verify URI with iio_info -s. Reboot Raspberry Pi.
 [Errno 13] Permission denied	File or user permissions	Run chmod u+x yourfile.py or modify sudoers (see thesis memo).
 [Errno 32] Broken Pipe	IO management bug in pyadi-iio or CN0554 driver	Use main_stable() for demos. Future work: investigate driver reset between writes.
 For detailed debugging steps, refer to the "Problèmes rencontrés" section in the thesis memo (page 37–38).
 
-Next Steps & Future Work
+## Next Steps & Future Work
 Resolve the Broken Pipe error to enable continuous data replay.
 
 Build a portable suitcase with physical buttons to switch between real data and optimised scenarios.
@@ -122,10 +105,10 @@ Integrate the simulator with the eGauge datalogger using voltage dividers.
 
 Add a simple GUI (Qt) to control the simulation.
 
-License
+## License
 This project is open-source under the MIT License. Feel free to use and adapt for educational or research purposes.
 
-Contact
+## Contact
 Filip Novakovic – filip-novakovic@hotmail.com
 Thesis advisor: Prof. Anthony Girardin, HEPIA Geneva
 
