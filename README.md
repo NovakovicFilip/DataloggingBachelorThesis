@@ -33,13 +33,6 @@ Install the required Python libraries:
 
 bash
 pip install -r requirements.txt
-requirements.txt
-text
-numpy
-pandas
-matplotlib
-scipy
-adijupyter
 For the Raspberry Pi + CN0554, you must use the Analog Devices Kuiper Linux image. See the official installation guide.
 
 ## Project Structure & Key Results
